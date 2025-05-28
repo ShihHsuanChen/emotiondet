@@ -1,0 +1,3 @@
+[submodule "setfit-emotion"]
+	path = setfit-emotion
+	url = https://huggingface.co/datasets/SetFit/emotion

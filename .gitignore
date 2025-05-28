@@ -11,4 +11,3 @@ wheels/
 
 # Notebooks
 __marimo__/
-*.ipynb

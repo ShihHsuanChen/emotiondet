@@ -1,3 +1,6 @@
 [submodule "setfit-emotion"]
 	path = setfit-emotion
 	url = https://huggingface.co/datasets/SetFit/emotion
+[submodule "huggingface-deberta-v3-emotion"]
+	path = huggingface-deberta-v3-emotion
+	url = https://huggingface.co/ShihHsuanChen/deberta-v3-emotion

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html encoding="utf-8">
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="titleText">&#128536 Tell Me The Emotion &#128512;</div>
+        <div class="main">
+            <div>
+                <input type="text" id="query" placeholder="input your feeling">
+                <button id="butSubmit" disabled>Submit</button>
+                <button id="butClear">Clear</button>
+            </div>
+            <div id="resBlock" hidden>
+                <div class="wide">
+                    <span>Results</span>
+                    <button id="butExpand" class="right">Show More</button>
+                    <button id="butCollapse" class="right" hidden>Show Less</button>
+                </div>
+                <div id="resList"></div>
+            </div>
+        </div>
+    </body>
+    <script>
+    $("document").ready(() => {
+        const emojiMap = {
+            anger: "&#128545;",
+            joy: "&#128518;",
+            fear: "&#128552;",
+            sadness: "&#128549;",
+            surprise: "&#128559;",
+            love: "&#128525;",
+        };
+        $("#butClear").on("click", e => {
+            $("#query").val("");
+            $("#butSubmit").attr("disabled", true);
+            $("#resBlock").attr("hidden", true);
+            $("#resList").empty();
+        });
+        $("#butExpand").on("click", e => {
+            $("#resList > div").each((i,dom) => {
+                if (i === 0) return;
+                $(dom).attr("hidden", false);
+            });
+            $("#butCollapse").attr("hidden", false);
+            $("#butExpand").attr("hidden", true);
+        });
+        $("#butCollapse").on("click", e => {
+            $("#resList > div").each((i,dom) => {
+                if (i === 0) return;
+                $(dom).attr("hidden", true);
+            });
+            $("#butCollapse").attr("hidden", true);
+            $("#butExpand").attr("hidden", false);
+        });
+        $("#query").on("input", e => {
+            const text = $(e.target).val();
+            $("#butSubmit").attr("disabled", text.length===0);
+        });
+        $("#query").on("change", e => {
+            const text = $(e.target).val();
+            if (text.length == 0) return;
+            $("#resList").empty();
+            $.ajax({
+                type: "POST",
+                url: "/api/get_emotion",
+                data: text,
+                headers: {
+                    ContentType: "application/json",
+                },
+                success: (data) => {
+                    $("#resBlock").attr("hidden", false);
+                    const tar = $("#resList");
+                    $.each(Object.entries(data.prob).sort((a,b)=>b[1]-a[1]), (i, [k,v]) => {
+                        tar.append($("<div>", {class: "wide", hidden: i>0})
+                            .append($("<span>", {class: "label", title: k}).append(emojiMap[k]))
+                            .append($("<span>", {class: "prob right"}).text((v*100).toFixed(1) + "%"))
+                        );
+                    });
+                    $("#butCollapse").attr("hidden", true);
+                    $("#butExpand").attr("hidden", false);
+                }
+            })
+        });
+    });
+    </script>
+    <style>
+    #titleText {
+        font-size: 2.5em;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 30vh;
+    }
+    #query, #butSubmit, #butClear {
+        font-size: 1em;
+    }
+    #resBlock {
+        background: bisque;
+        padding: 5px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .main > * {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .wide {
+        display: flex;
+    }
+    .wide > .right {
+        margin-left: auto;
+    }
+    *[hidden] {
+        display: none;
+    }
+    </style>
+</html>

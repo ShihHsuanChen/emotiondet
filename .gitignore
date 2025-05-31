@@ -11,3 +11,6 @@ wheels/
 
 # Notebooks
 __marimo__/
+
+# Application
+.env

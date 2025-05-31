@@ -38,8 +38,8 @@ def create_app(settings: AppSettings):
         yield
 
     app = FastAPI(
-        prog='emotiondet',
-        desc='Inference API for emotion detection using the fintuned Deberta model.',
+        title='Emotiondet API',
+        description='Inference API for emotion detection using the fintuned Deberta model.',
         lifespan=lifespan,
     )
 

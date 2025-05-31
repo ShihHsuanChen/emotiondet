@@ -4,6 +4,11 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div class="topbar">
+            <a href="/docs">DOC</a>
+            <a href="https://github.com/ShihHsuanChen/emotiondet">Github</a>
+            <a href="https://huggingface.co/ShihHsuanChen/deberta-v3-emotion">HuggingFace</a>
+        </div>
         <div id="titleText">&#128536 Tell Me The Emotion &#128512;</div>
         <div class="main">
             <div>
@@ -112,6 +117,15 @@
     }
     .wide > .right {
         margin-left: auto;
+    }
+    .topbar {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 0;
+    }
+    .topbar > * {
+        margin-right: 15px;
     }
     *[hidden] {
         display: none;

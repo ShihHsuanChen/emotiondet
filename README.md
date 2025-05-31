@@ -4,58 +4,58 @@
 
 1. Clone Repository
 
-```
-git clone https://github.com/ShihHsuanChen/emotiondet
-cd emotiondet 
-```
+  ```
+  git clone https://github.com/ShihHsuanChen/emotiondet
+  cd emotiondet 
+  ```
 
-1. Install `uv`
+2. Install `uv`
 
-```
-pip install uv
-```
+  ```
+  pip install uv
+  ```
 
-See https://docs.astral.sh/uv/getting-started/installation/#standalone-installer for more options
+  See https://docs.astral.sh/uv/getting-started/installation/#standalone-installer for more options
 
-2. Install Dependencies
+3. Install Dependencies
 
-```
-uv sync
-```
+  ```
+  uv sync
+  ```
 
 3. Install PyTorch with GPU Support (Optional)
 
-See https://pytorch.org/get-started/previous-versions/
+  See https://pytorch.org/get-started/previous-versions/
 
-ROCM 6.1 (Linux only)
+  ROCM 6.1 (Linux only)
 
-```shell
-pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
-```
+  ```shell
+  pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
+  ```
 
-ROCM 6.2.4 (Linux only)
+  ROCM 6.2.4 (Linux only)
 
-```
-pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
-```
+  ```
+  pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
+  ```
 
-CUDA 11.8
+  CUDA 11.8
 
-```
-pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
-```
+  ```
+  pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
+  ```
 
-CUDA 12.4
+  CUDA 12.4
 
-```
-pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
-```
+  ```
+  pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+  ```
 
-CUDA 12.6
+  CUDA 12.6
 
-```
-pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
-```
+  ```
+  pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+  ```
 
 4. Configuration
 

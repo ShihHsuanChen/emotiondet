@@ -120,3 +120,5 @@ You can also checkout `127.0.0.1:8000/docs` for the API documentations.
     | Precision | 0.966102 | 0.936709 | 0.858108 | 0.980159 | 0.868526 | 1.000000 | 0.934934      |
     | Recall    | 0.984456 | 0.965217 | 0.808917 | 0.901460 | 0.973214 | 0.569231 | 0.867083      |
     | F1-Score  | 0.975192 | 0.950749 | 0.832787 | 0.939163 | 0.917895 | 0.725490 | 0.890213      |
+
+    ![Confusion Matrix](train/confusion_matrix.png)

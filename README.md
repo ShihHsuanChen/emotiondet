@@ -23,41 +23,47 @@
    uv sync
    ```
 
-3. Install PyTorch with GPU Support (Optional)
+4. Acitvate the Environment
+   
+   ```
+   source .venv/bin/activate
+   ```
+
+5. Install PyTorch with GPU Support (Optional)
 
    See https://pytorch.org/get-started/previous-versions/
 
    ROCM 6.1 (Linux only)
 
    ```shell
-   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
+   uv pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.1
    ```
 
    ROCM 6.2.4 (Linux only)
 
    ```
-   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
+   uv pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/rocm6.2.4
    ```
 
    CUDA 11.8
 
    ```
-   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
+   uv pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu118
    ```
 
    CUDA 12.4
 
    ```
-   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+   uv pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
    ```
 
    CUDA 12.6
 
    ```
-   pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+   uv pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
    ```
 
-4. Configuration
+6. Configuration
 
    1. Copy `.env.example` to `.env`
    2. Modify `DEVICE` depending on your GPU device. Accept values: "cpu", "cuda", "cuda:0", ...

@@ -47,7 +47,8 @@ def create_app(settings: AppSettings):
     def get_model_manager():
         yield model_manager
 
-    app.mount('/static', routers.ui.staticfiles)
-    routers.ui.include(app)
+    # routers.ui.include(app) # usage 1
+    app.mount('/static', routers.ui.staticfiles) # usage 2
+    app.include_router(routers.ui.get_router('/static'), tags=['api']) # usage 2
     app.include_router(routers.api.get_router(get_model_manager), prefix='/api', tags=['api'])
     return app

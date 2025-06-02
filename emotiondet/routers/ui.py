@@ -1,6 +1,6 @@
 import os
 
-from fastapi import FastAPI, Request
+from fastapi import APIRouter, FastAPI, Request
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -15,3 +15,11 @@ def include(app: FastAPI):
     async def root(request: Request):
         return RedirectResponse('/static/index.html')
 
+
+def get_router(static_prefix: str = '/static', **router_kwargs):
+    router = APIRouter(**router_kwargs)
+
+    @router.get('/', name='root')
+    async def root(request: Request):
+        return RedirectResponse(static_prefix + '/index.html')
+    return router
